@@ -105,7 +105,7 @@ module ONIX
     #
     def each(&block)
       @reader.each do |node|
-        if @reader.node_type == 1 && @reader.name == "Product"
+        if @reader.node_type == 1 && @reader.name.downcase == "product"
           str = @reader.outer_xml
           if str.nil?
             yield @product_klass.new
@@ -125,7 +125,7 @@ module ONIX
     def find_release
       2.times do
         @reader.read
-        if @reader.node_type == 1 && @reader.name == "ONIXMessage"
+        if @reader.node_type == 1 && @reader.name.downcase == "onixmessage"
           value = @reader.attributes["release"]
           if value
             return BigDecimal.new(value)
@@ -142,7 +142,7 @@ module ONIX
     def find_header
       100.times do
         @reader.read
-        if @reader.node_type == 1 &&  @reader.name == "Header"
+        if @reader.node_type == 1 &&  @reader.name.downcase == "header"
           str = @reader.outer_xml
           if str.nil?
             return ONIX::Header.new
