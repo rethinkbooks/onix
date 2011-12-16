@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
-  s.name              = "rethink_onix"
-  s.version           = "0.9.4"
+  s.name              = "onix"
+  s.version           = "0.9.5"
   s.summary           = "A convient mapping between ruby objects and the ONIX XML specification"
   s.description       = "A convient mapping between ruby objects and the ONIX XML specification"
   s.authors           = ["James Healy"]
